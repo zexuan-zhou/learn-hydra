@@ -1,5 +1,5 @@
 # Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved
-from omegaconf import DictConfig, MissingMandatoryValue, open_dict
+from omegaconf import DictConfig, MissingMandatoryValue, open_dict, OmegaConf
 from pytest import raises
 
 import hydra
@@ -7,6 +7,7 @@ import hydra
 
 @hydra.main(config_path=".", config_name="config")
 def my_app(cfg: DictConfig) -> None:
+    print(OmegaConf.to_yaml(cfg, resolve=True))
     assert cfg.node.loompa == 10  # attribute style access
     assert cfg["node"]["loompa"] == 10  # dictionary style access
     assert cfg.node.zippity == 10  # Variable interpolation
