@@ -1,1 +1,1 @@
-The directory structure here is similar to the directory structure in the website/docs directory. 
+Learn [Hydra](https://hydra.cc/)
